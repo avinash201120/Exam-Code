@@ -1,0 +1,39 @@
+package com.vaishnavi;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.HashSet;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+	// write your code here
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(br.readLine());
+        for(int l = 1; l <= t; l++)
+        {
+            long n = Long.parseLong(br.readLine());
+
+            HashSet<Long> hset = new HashSet<>();
+
+            long sq_limit = (long)Math.sqrt(n);
+            long cb_limit = (long)Math.cbrt(n);
+
+            for(long i = 1; i <= sq_limit; i++)
+            {
+                long sqr = i*i;
+                hset.add(sqr);
+
+            }
+
+            for(long i = 1; i <= cb_limit; i++)
+            {
+                long cube = i*i*i;
+                hset.add(cube);
+            }
+
+            System.out.println(hset.size());
+        }
+    }
+}
